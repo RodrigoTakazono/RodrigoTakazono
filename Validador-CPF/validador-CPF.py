@@ -24,8 +24,7 @@ while True:
 
     sequencia = novo_cpf == str(novo_cpf[0]) * len(cpf)
 
-    # Descobri que sequências avaliavam como verdadeiro, então também
-    # adicionei essa checagem aqui
+
     if cpf == novo_cpf and not sequencia:
         print('Válido')
     else:
