@@ -1,32 +1,25 @@
-while True:
-    
-    cpf = input('Digite um CPF: ')
-    novo_cpf = cpf[:-2]                 
-    reverso = 10                        
-    total = 0
+from random import randint
+numero = str(randint(100000000, 999999999))
 
-    # Loop do CPF
-    for index in range(19):
-        if index > 8:                   
-            index -= 9                  
+novo_cpf = numero                   
+reverso = 10                        
+total = 0                           
 
-        total += int(novo_cpf[index]) * reverso  
+# Loop do CPF
+for index in range(19):
+    if index > 8:                   
+        index -= 9                  
 
-        reverso -= 1                    
-        if reverso < 2:
-            reverso = 11
-            d = 11 - (total % 11)
+    total += int(novo_cpf[index]) * reverso  
 
-            if d > 9:                   
-                d = 0
-            total = 0                   
-            novo_cpf += str(d)          
+    reverso -= 1                    
+    if reverso < 2:
+        reverso = 11
+        d = 11 - (total % 11)
 
-    sequencia = novo_cpf == str(novo_cpf[0]) * len(cpf)
+        if d > 9:                   
+            d = 0
+        total = 0                   
+        novo_cpf += str(d)          
 
-    # Descobri que sequências avaliavam como verdadeiro, então também
-    # adicionei essa checagem aqui
-    if cpf == novo_cpf and not sequencia:
-        print('Válido')
-    else:
-        print('Inválido')
+print(novo_cpf)
